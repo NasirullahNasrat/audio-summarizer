@@ -117,6 +117,13 @@ Open: `http://127.0.0.1:8000/`
 
 ---
 
+🔐 Default Admin CredentialsUse these to access the dashboard or Django admin
+```bash
+Username: pc
+Password: admin
+```
+---
+
 ## 🔄 Optional Async Processing (Celery)
 
 If Redis + Celery are running, tasks execute in background workers.
@@ -137,7 +144,4 @@ If Celery/Redis is unavailable, the app falls back to synchronous processing.
 - `POST /api/regenerate/<id>/` — regenerate summary
 - `GET /api/stats/` — usage stats
 
----
-admin user and password
-user: pc
-password: admin
+
