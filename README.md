@@ -138,10 +138,6 @@ If Celery/Redis is unavailable, the app falls back to synchronous processing.
 - `GET /api/stats/` — usage stats
 
 ---
-
-## 📌 Notes for GitHub Upload
-
-- Keep this README at: `audio_summarizer/README.md`
-- Keep screenshot files in: `audio_summarizer/images/`
-- The current image links use relative paths (`images/1.jpg` ... `images/6.jpg`) and will render correctly on GitHub.
-
+admin user and password
+user: pc
+password: admin
