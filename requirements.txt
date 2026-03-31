@@ -1,0 +1,33 @@
+# Core Django
+Django==4.2
+djangorestframework==3.14
+
+# Celery & Redis
+celery==5.3
+redis==5.0
+django-celery-results==2.5
+
+# AI APIs
+openai==1.6.1
+requests==2.31
+
+# Environment & Configuration
+python-dotenv==1.0
+django-environ==0.11.2
+
+# Frontend & UI
+django-bootstrap5==24.3
+
+# Security & CORS
+django-cors-headers==4.3
+djangorestframework-simplejwt==5.3
+django-ratelimit==3.0
+
+# Deployment
+whitenoise==6.6
+gunicorn==21.2
+
+# Optional dependencies (comment out if not needed)
+# tiktoken==0.5.1  # Requires C++ build tools on Windows
+# psycopg2-binary==2.9  # Requires C++ build tools on Windows
+# reportlab==4.0  # For PDF export

@@ -1,0 +1,277 @@
+{% extends 'transcriber/base.html' %}
+
+{% block title %}Home - Audio Summarizer{% endblock %}
+
+{% block content %}
+<div class="row mb-5">
+    <div class="col-lg-8 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-3">Audio Summarizer</h1>
+        <p class="lead mb-4">
+            Upload MP3 audio files, get AI-powered transcriptions, and generate intelligent summaries
+            using OpenAI Whisper and GPT models or DeepSeek API.
+        </p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a href="{% url 'transcriber:upload' %}" class="btn btn-primary btn-lg px-4 gap-3">
+                <i class="bi bi-upload me-2"></i>Upload Audio
+            </a>
+            <a href="{% url 'transcriber:recording_list' %}" class="btn btn-outline-secondary btn-lg px-4">
+                <i class="bi bi-list-ul me-2"></i>View Recordings
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Statistics Cards -->
+<div class="row mb-5">
+    <div class="col-md-3">
+        <div class="card stat-card">
+            <div class="card-body">
+                <div class="stat-value">{{ total_recordings }}</div>
+                <div class="stat-label">Total Recordings</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card stat-card">
+            <div class="card-body">
+                <div class="stat-value">{{ completed_recordings }}</div>
+                <div class="stat-label">Completed</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card stat-card">
+            <div class="card-body">
+                <div class="stat-value">${{ total_cost|floatformat:6 }}</div>
+                <div class="stat-label">Total Cost</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card stat-card">
+            <div class="card-body">
+                <div class="stat-value">{{ avg_processing_time|floatformat:2 }}s</div>
+                <div class="stat-label">Avg. Time</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- How It Works -->
+<div class="row mb-5">
+    <div class="col-lg-10 mx-auto">
+        <h2 class="text-center mb-4">How It Works</h2>
+        <div class="row">
+            <div class="col-md-3 text-center mb-4">
+                <div class="mb-3">
+                    <i class="bi bi-upload display-4 text-primary"></i>
+                </div>
+                <h5>1. Upload</h5>
+                <p class="text-muted">Upload your MP3 audio file (up to 25MB)</p>
+            </div>
+            <div class="col-md-3 text-center mb-4">
+                <div class="mb-3">
+                    <i class="bi bi-soundwave display-4 text-info"></i>
+                </div>
+                <h5>2. Transcribe</h5>
+                <p class="text-muted">AI transcribes audio to text using Whisper API</p>
+            </div>
+            <div class="col-md-3 text-center mb-4">
+                <div class="mb-3">
+                    <i class="bi bi-chat-left-text display-4 text-warning"></i>
+                </div>
+                <h5>3. Summarize</h5>
+                <p class="text-muted">Generate summaries in your preferred style</p>
+            </div>
+            <div class="col-md-3 text-center mb-4">
+                <div class="mb-3">
+                    <i class="bi bi-download display-4 text-success"></i>
+                </div>
+                <h5>4. Download</h5>
+                <p class="text-muted">Download transcription and summary files</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Recordings -->
+<div class="row">
+    <div class="col-lg-10 mx-auto">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Recent Recordings</h5>
+                <a href="{% url 'transcriber:recording_list' %}" class="btn btn-sm btn-outline-primary">
+                    View All <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+            <div class="card-body">
+                {% if recent_recordings %}
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Status</th>
+                                <th>Provider</th>
+                                <th>Cost</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for recording in recent_recordings %}
+                            <tr>
+                                <td>
+                                    <a href="{% url 'transcriber:recording_detail' recording.pk %}" class="text-decoration-none">
+                                        {{ recording.title|truncatechars:30 }}
+                                    </a>
+                                </td>
+                                <td>
+                                    <span class="status-badge status-{{ recording.status }}">
+                                        {{ recording.get_status_display }}
+                                    </span>
+                                </td>
+                                <td>
+                                    {% if recording.api_provider == 'openai' %}
+                                    <i class="bi bi-robot text-primary"></i> OpenAI
+                                    {% else %}
+                                    <i class="bi bi-cpu text-info"></i> DeepSeek
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if recording.cost_estimate %}
+                                    <span class="badge bg-secondary cost-badge">
+                                        ${{ recording.cost_estimate|floatformat:6 }}
+                                    </span>
+                                    {% else %}
+                                    <span class="text-muted">-</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <small class="text-muted">
+                                        {{ recording.created_at|date:"M d, Y" }}
+                                    </small>
+                                </td>
+                                <td>
+                                    <div class="btn-group btn-group-sm">
+                                        <a href="{% url 'transcriber:recording_detail' recording.pk %}" class="btn btn-outline-primary" title="View">
+                                            <i class="bi bi-eye"></i>
+                                        </a>
+                                        {% if recording.status == 'completed' %}
+                                        <a href="{% url 'transcriber:download_transcription' recording.pk %}" class="btn btn-outline-success" title="Download Transcription">
+                                            <i class="bi bi-file-text"></i>
+                                        </a>
+                                        <a href="{% url 'transcriber:download_summary' recording.pk %}" class="btn btn-outline-info" title="Download Summary">
+                                            <i class="bi bi-file-earmark-text"></i>
+                                        </a>
+                                        {% endif %}
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="text-center py-4">
+                    <i class="bi bi-mic display-4 text-muted mb-3"></i>
+                    <p class="text-muted">No recordings yet. Upload your first audio file!</p>
+                    <a href="{% url 'transcriber:upload' %}" class="btn btn-primary">
+                        <i class="bi bi-upload me-2"></i>Upload Audio
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Features -->
+<div class="row mt-5">
+    <div class="col-lg-10 mx-auto">
+        <h2 class="text-center mb-4">Features</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-primary bg-opacity-10 p-3 rounded me-3">
+                                <i class="bi bi-cloud-upload text-primary fs-4"></i>
+                            </div>
+                            <h5 class="mb-0">Easy Upload</h5>
+                        </div>
+                        <p class="text-muted">Drag & drop or click to upload MP3 files. Automatic validation for file type and size.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-info bg-opacity-10 p-3 rounded me-3">
+                                <i class="bi bi-robot text-info fs-4"></i>
+                            </div>
+                            <h5 class="mb-0">Multiple AI Providers</h5>
+                        </div>
+                        <p class="text-muted">Choose between OpenAI Whisper/GPT or DeepSeek API for transcription and summarization.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-warning bg-opacity-10 p-3 rounded me-3">
+                                <i class="bi bi-card-text text-warning fs-4"></i>
+                            </div>
+                            <h5 class="mb-0">Flexible Summaries</h5>
+                        </div>
+                        <p class="text-muted">Generate summaries in different styles: concise, detailed, bullet points, or key takeaways.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-success bg-opacity-10 p-3 rounded me-3">
+                                <i class="bi bi-graph-up text-success fs-4"></i>
+                            </div>
+                            <h5 class="mb-0">Real-time Progress</h5>
+                        </div>
+                        <p class="text-muted">Track processing status in real-time with progress bars and status updates.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-danger bg-opacity-10 p-3 rounded me-3">
+                                <i class="bi bi-cash-coin text-danger fs-4"></i>
+                            </div>
+                            <h5 class="mb-0">Cost Tracking</h5>
+                        </div>
+                        <p class="text-muted">Monitor API usage costs with detailed breakdowns and cost estimation before processing.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-secondary bg-opacity-10 p-3 rounded me-3">
+                                <i class="bi bi-download text-secondary fs-4"></i>
+                            </div>
+                            <h5 class="mb-0">Export Options</h5>
+                        </div>
+                        <p class="text-muted">Download transcriptions and summaries as text files or export all data as CSV.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

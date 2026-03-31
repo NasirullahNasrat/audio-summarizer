@@ -1,0 +1,480 @@
+{% extends 'transcriber/base.html' %}
+
+{% block title %}{{ recording.title }} - Audio Summarizer{% endblock %}
+
+{% block extra_css %}
+<style>
+    .audio-player-container {
+        background-color: var(--bs-dark);
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+    }
+    
+    .text-content-container {
+        max-height: 500px;
+        overflow-y: auto;
+        background-color: var(--bs-tertiary-bg);
+        color: var(--bs-body-color);
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+    }
+    
+    .metadata-card {
+        background-color: rgba(var(--bs-primary-rgb), 0.05);
+        border-left: 4px solid var(--bs-primary);
+        padding: 1rem;
+        border-radius: 0.5rem;
+    }
+    
+    .token-usage-card {
+        background-color: rgba(var(--bs-info-rgb), 0.05);
+        border-left: 4px solid var(--bs-info);
+        padding: 1rem;
+        border-radius: 0.5rem;
+    }
+    
+    .cost-card {
+        background-color: rgba(var(--bs-success-rgb), 0.05);
+        border-left: 4px solid var(--bs-success);
+        padding: 1rem;
+        border-radius: 0.5rem;
+    }
+    
+    .action-buttons {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+    
+    .text-content {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        font-family: 'Courier New', monospace;
+        line-height: 1.6;
+        color: var(--bs-body-color);
+        background-color: transparent;
+        padding: 0;
+    }
+    
+    .word-count-badge {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.5rem;
+    }
+    
+    .section-title {
+        border-bottom: 2px solid var(--bs-border-color);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'transcriber:home' %}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'transcriber:recording_list' %}">Recordings</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ recording.title|truncatechars:30 }}</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="col-auto">
+        <div class="action-buttons">
+            <a href="{% url 'transcriber:recording_list' %}" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left me-2"></i>Back
+            </a>
+            {% if recording.status == 'completed' %}
+            <a href="{% url 'transcriber:regenerate_summary' recording.pk %}" class="btn btn-outline-warning">
+                <i class="bi bi-arrow-clockwise me-2"></i>Regenerate
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<!-- Recording Header -->
+<div class="card mb-4">
+    <div class="card-body">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h3 class="mb-2">{{ recording.title }}</h3>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                    <span class="status-badge status-{{ recording.status }}">
+                        {{ recording.get_status_display }}
+                    </span>
+                    {% if recording.api_provider == 'openai' %}
+                    <span class="badge bg-primary">
+                        <i class="bi bi-robot me-1"></i>OpenAI
+                    </span>
+                    {% else %}
+                    <span class="badge bg-info">
+                        <i class="bi bi-cpu me-1"></i>DeepSeek
+                    </span>
+                    {% endif %}
+                    <span class="badge bg-secondary">
+                        {{ recording.get_summary_style_display }}
+                    </span>
+                    {% if recording.cost_estimate %}
+                    <span class="badge bg-success">
+                        ${{ recording.cost_estimate|floatformat:6 }}
+                    </span>
+                    {% endif %}
+                </div>
+                <p class="text-muted mb-0">
+                    <i class="bi bi-calendar me-1"></i>
+                    Created: {{ recording.created_at|date:"F d, Y H:i" }}
+                    {% if recording.updated_at %}
+                    | Updated: {{ recording.updated_at|date:"F d, Y H:i" }}
+                    {% endif %}
+                </p>
+            </div>
+            <div class="col-md-4 text-md-end">
+                <div class="action-buttons justify-content-md-end">
+                    {% if recording.status == 'completed' %}
+                    <a href="{% url 'transcriber:download_transcription' recording.pk %}" class="btn btn-success">
+                        <i class="bi bi-download me-2"></i>Transcription
+                    </a>
+                    <a href="{% url 'transcriber:download_summary' recording.pk %}" class="btn btn-info">
+                        <i class="bi bi-download me-2"></i>Summary
+                    </a>
+                    {% endif %}
+                    {% if recording.status == 'failed' %}
+                    <a href="{% url 'transcriber:regenerate_summary' recording.pk %}" class="btn btn-warning">
+                        <i class="bi bi-arrow-clockwise me-2"></i>Retry
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Error Message (if any) -->
+{% if recording.error_message %}
+<div class="alert alert-danger mb-4">
+    <h5><i class="bi bi-exclamation-triangle me-2"></i>Error</h5>
+    <p class="mb-0">{{ recording.error_message }}</p>
+</div>
+{% endif %}
+
+<!-- Audio Player -->
+<div class="card mb-4">
+    <div class="card-header">
+        <h5 class="mb-0"><i class="bi bi-music-note-beamed me-2"></i>Audio File</h5>
+    </div>
+    <div class="card-body">
+        <div class="audio-player-container">
+            {% if recording.audio_file %}
+            <div class="mb-3">
+                <strong>File:</strong> {{ recording.audio_file.name|slice:"6:" }}
+                <span class="badge bg-secondary ms-2">
+                    {{ recording.get_file_size_mb|floatformat:2 }} MB
+                </span>
+            </div>
+            <audio controls class="audio-player">
+                <source src="{{ recording.audio_file.url }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            {% else %}
+            <p class="text-muted mb-0">No audio file available.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Transcription Column -->
+    <div class="col-lg-6 mb-4">
+        <div class="card h-100">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="bi bi-text-paragraph me-2"></i>Transcription</h5>
+                <div>
+                    <span class="badge bg-secondary word-count-badge">
+                        {{ transcription_word_count }} words
+                    </span>
+                    {% if recording.status == 'completed' %}
+                    <button class="btn btn-sm btn-outline-secondary ms-2" onclick="copyToClipboard('{{ recording.transcribed_text|escapejs }}', this)">
+                        <i class="bi bi-clipboard"></i>
+                    </button>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="text-content-container">
+                    {% if recording.transcribed_text %}
+                    <div class="text-content">{{ recording.transcribed_text }}</div>
+                    {% elif recording.status == 'failed' %}
+                    <div class="alert alert-warning mb-0">
+                        <i class="bi bi-exclamation-triangle me-2"></i>
+                        Transcription failed. Please try regenerating.
+                    </div>
+                    {% elif recording.status == 'transcribing' or recording.status == 'summarizing' %}
+                    <div class="text-center py-4">
+                        <div class="spinner-border text-primary mb-3" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="text-muted mb-0">Transcription in progress...</p>
+                    </div>
+                    {% else %}
+                    <div class="text-center py-4">
+                        <i class="bi bi-hourglass-split display-4 text-muted mb-3"></i>
+                        <p class="text-muted mb-0">Waiting for transcription to start...</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Summary Column -->
+    <div class="col-lg-6 mb-4">
+        <div class="card h-100">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="bi bi-chat-left-text me-2"></i>Summary</h5>
+                <div>
+                    <span class="badge bg-secondary word-count-badge">
+                        {{ summary_word_count }} words
+                    </span>
+                    {% if recording.status == 'completed' %}
+                    <button class="btn btn-sm btn-outline-secondary ms-2" onclick="copyToClipboard('{{ recording.summary|escapejs }}', this)">
+                        <i class="bi bi-clipboard"></i>
+                    </button>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="text-content-container">
+                    {% if recording.summary %}
+                    <div class="text-content">{{ recording.summary }}</div>
+                    {% elif recording.status == 'failed' %}
+                    <div class="alert alert-warning mb-0">
+                        <i class="bi bi-exclamation-triangle me-2"></i>
+                        Summarization failed. Please try regenerating.
+                    </div>
+                    {% elif recording.status == 'summarizing' %}
+                    <div class="text-center py-4">
+                        <div class="spinner-border text-warning mb-3" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="text-muted mb-0">Generating summary...</p>
+                    </div>
+                    {% elif recording.status == 'transcribing' %}
+                    <div class="text-center py-4">
+                        <i class="bi bi-hourglass-split display-4 text-muted mb-3"></i>
+                        <p class="text-muted mb-0">Waiting for transcription to complete...</p>
+                    </div>
+                    {% else %}
+                    <div class="text-center py-4">
+                        <i class="bi bi-hourglass-split display-4 text-muted mb-3"></i>
+                        <p class="text-muted mb-0">Summary will be generated after transcription.</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Metadata and Statistics -->
+<div class="row">
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="mb-0"><i class="bi bi-info-circle me-2"></i>Metadata</h6>
+            </div>
+            <div class="card-body">
+                <div class="metadata-card">
+                    <div class="mb-2">
+                        <strong>Status:</strong>
+                        <span class="status-badge status-{{ recording.status }} ms-2">
+                            {{ recording.get_status_display }}
+                        </span>
+                    </div>
+                    <div class="mb-2">
+                        <strong>API Provider:</strong>
+                        <span class="badge bg-primary ms-2">
+                            {{ recording.get_api_provider_display }}
+                        </span>
+                    </div>
+                    <div class="mb-2">
+                        <strong>Summary Style:</strong>
+                        <span class="badge bg-secondary ms-2">
+                            {{ recording.get_summary_style_display }}
+                        </span>
+                    </div>
+                    <div class="mb-2">
+                        <strong>Processing Time:</strong>
+                        <span class="ms-2">
+                            {% if recording.processing_time %}
+                            {{ recording.processing_time|floatformat:2 }} seconds
+                            {% else %}
+                            <span class="text-muted">Not available</span>
+                            {% endif %}
+                        </span>
+                    </div>
+                    <div class="mb-2">
+                        <strong>Task ID:</strong>
+                        <code class="ms-2">{{ recording.task_id|default:"Not assigned" }}</code>
+                    </div>
+                    <div>
+                        <strong>Created:</strong>
+                        <span class="ms-2">{{ recording.created_at|date:"Y-m-d H:i:s" }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="mb-0"><i class="bi bi-calculator me-2"></i>Token Usage</h6>
+            </div>
+            <div class="card-body">
+                <div class="token-usage-card">
+                    {% if recording.token_usage %}
+                    <div class="mb-2">
+                        <strong>Prompt Tokens:</strong>
+                        <span class="badge bg-info ms-2">
+                            {{ recording.token_usage.prompt_tokens|default:0 }}
+                        </span>
+                    </div>
+                    <div class="mb-2">
+                        <strong>Completion Tokens:</strong>
+                        <span class="badge bg-info ms-2">
+                            {{ recording.token_usage.completion_tokens|default:0 }}
+                        </span>
+                    </div>
+                    <div class="mb-2">
+                        <strong>Total Tokens:</strong>
+                        <span class="badge bg-primary ms-2">
+                            {{ recording.token_usage.total_tokens|default:0 }}
+                        </span>
+                    </div>
+                    <div>
+                        <strong>Token Usage:</strong>
+                        <div class="mt-2">
+                            <div class="progress" style="height: 10px;">
+                                {% with total=recording.token_usage.total_tokens|default:1 %}
+                                {% with prompt_pct=recording.token_usage.prompt_tokens|default:0|floatformat:0 %}
+                                {% with completion_pct=recording.token_usage.completion_tokens|default:0|floatformat:0 %}
+                                <div class="progress-bar bg-info" style="width: {{ prompt_pct }}%">
+                                    Prompt
+                                </div>
+                                <div class="progress-bar bg-primary" style="width: {{ completion_pct }}%">
+                                    Completion
+                                </div>
+                                {% endwith %}
+                                {% endwith %}
+                                {% endwith %}
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <p class="text-muted mb-0">No token usage data available.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="mb-0"><i class="bi bi-cash-coin me-2"></i>Cost Analysis</h6>
+            </div>
+            <div class="card-body">
+                <div class="cost-card">
+                    <div class="mb-3">
+                        <strong>Estimated Cost:</strong>
+                        <div class="display-6 text-success">
+                            ${{ recording.cost_estimate|floatformat:6 }}
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <strong>Cost per 1K tokens:</strong>
+                        <span class="ms-2">
+                            {% if recording.api_provider == 'openai' %}
+                            $0.001 input / $0.002 output
+                            {% else %}
+                            $0.001 input / $0.002 output
+                            {% endif %}
+                        </span>
+                    </div>
+                    <div class="mb-2">
+                        <strong>File Size:</strong>
+                        <span class="badge bg-secondary ms-2">
+                            {{ recording.get_file_size_mb|floatformat:2 }} MB
+                        </span>
+                    </div>
+                    <div>
+                        <strong>Word Count:</strong>
+                        <span class="badge bg-secondary ms-2">
+                            {{ transcription_word_count }} words
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Regenerate Form -->
+{% if recording.status == 'completed' %}
+<div class="card">
+    <div class="card-header">
+        <h5 class="mb-0"><i class="bi bi-arrow-clockwise me-2"></i>Regenerate Summary</h5>
+    </div>
+    <div class="card-body">
+        <form method="post" action="{% url 'transcriber:regenerate_summary' recording.pk %}">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Summary Style</label>
+                    {{ regenerate_form.summary_style }}
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">API Provider</label>
+                    {{ regenerate_form.api_provider }}
+                </div>
+            </div>
+            <div class="alert alert-info">
+                <i class="bi bi-info-circle me-2"></i>
+                Regenerating will create a new summary with the selected options.
+                The original transcription will be reused.
+            </div>
+            <div class="text-end">
+                <button type="submit" class="btn btn-warning">
+                    <i class="bi bi-arrow-clockwise me-2"></i>Regenerate Summary
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function copyToClipboard(text, button) {
+    navigator.clipboard.writeText(text).then(function() {
+        const originalHtml = button.innerHTML;
+        button.innerHTML = '<i class="bi bi-check"></i>';
+        button.classList.remove('btn-outline-secondary');
+        button.classList.add('btn-success');
+        
+        setTimeout(function() {
+            button.innerHTML = originalHtml;
+            button.classList.remove('btn-success');
+            button.classList.add('btn-outline-secondary');
+        }, 2000);
+    }).catch(function(err) {
+        console.error('Failed to copy text: ', err);
+        alert('Failed to copy text to clipboard');
+    });
+}
+</script>
+{% endblock %}

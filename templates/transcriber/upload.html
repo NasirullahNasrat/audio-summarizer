@@ -1,0 +1,509 @@
+{% extends 'transcriber/base.html' %}
+
+{% block title %}Upload Audio - Audio Summarizer{% endblock %}
+
+{% block extra_css %}
+<style>
+    .cost-estimate-card {
+        border-left: 4px solid var(--bs-primary);
+    }
+    
+    .file-info {
+        background-color: var(--bs-dark);
+        border-radius: 0.5rem;
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+    
+    .processing-steps {
+        position: relative;
+        padding-left: 2rem;
+    }
+    
+    .processing-steps::before {
+        content: '';
+        position: absolute;
+        left: 0.75rem;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background-color: var(--bs-border-color);
+    }
+    
+    .step {
+        position: relative;
+        margin-bottom: 1.5rem;
+    }
+    
+    .step::before {
+        content: '';
+        position: absolute;
+        left: -1.25rem;
+        top: 0.25rem;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        background-color: var(--bs-secondary);
+        border: 2px solid var(--bs-body-bg);
+    }
+    
+    .step.active::before {
+        background-color: var(--bs-primary);
+        box-shadow: 0 0 0 3px rgba(var(--bs-primary-rgb), 0.2);
+    }
+    
+    .step.completed::before {
+        background-color: var(--bs-success);
+    }
+    
+    .progress-container {
+        position: relative;
+        height: 100px;
+    }
+    
+    .progress-ring {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 100px;
+    }
+    
+    .progress-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0"><i class="bi bi-upload me-2"></i>Upload Audio File</h4>
+            </div>
+            <div class="card-body">
+                <!-- Upload Form -->
+                <form method="post" enctype="multipart/form-data" id="uploadForm">
+                    {% csrf_token %}
+                    
+                    <!-- File Upload Area -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">Audio File</label>
+                        <div class="file-upload-area" id="fileUploadArea">
+                            <i class="bi bi-cloud-upload display-4 text-muted mb-3"></i>
+                            <p class="mb-2">Drag & drop your MP3 file here</p>
+                            <p class="text-muted mb-3">or click to browse</p>
+                            <input type="file" name="audio_file" id="audioFile" class="d-none" accept=".mp3,audio/mp3">
+                            <button type="button" class="btn btn-outline-primary" onclick="document.getElementById('audioFile').click()">
+                                <i class="bi bi-folder2-open me-2"></i>Choose File
+                            </button>
+                            <div class="file-info d-none" id="fileInfo">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <i class="bi bi-file-earmark-music text-primary me-2"></i>
+                                        <span id="fileName"></span>
+                                    </div>
+                                    <button type="button" class="btn btn-sm btn-outline-danger" onclick="clearFile()">
+                                        <i class="bi bi-x"></i>
+                                    </button>
+                                </div>
+                                <small class="text-muted" id="fileSize"></small>
+                            </div>
+                        </div>
+                        {% if form.audio_file.errors %}
+                        <div class="text-danger mt-2">
+                            {% for error in form.audio_file.errors %}
+                            <i class="bi bi-exclamation-circle me-1"></i>{{ error }}
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                    
+                    <!-- Title Input -->
+                    <div class="mb-3">
+                        <label for="{{ form.title.id_for_label }}" class="form-label fw-bold">Title</label>
+                        {{ form.title }}
+                        {% if form.title.errors %}
+                        <div class="text-danger mt-2">
+                            {% for error in form.title.errors %}
+                            <i class="bi bi-exclamation-circle me-1"></i>{{ error }}
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        <div class="form-text">Give your audio recording a descriptive title</div>
+                    </div>
+                    
+                    <div class="row">
+                        <!-- Summary Style -->
+                        <div class="col-md-6 mb-3">
+                            <label for="{{ form.summary_style.id_for_label }}" class="form-label fw-bold">Summary Style</label>
+                            {{ form.summary_style }}
+                            {% if form.summary_style.errors %}
+                            <div class="text-danger mt-2">
+                                {% for error in form.summary_style.errors %}
+                                <i class="bi bi-exclamation-circle me-1"></i>{{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            <div class="form-text">Choose how you want the summary formatted</div>
+                        </div>
+                        
+                        <!-- API Provider -->
+                        <div class="col-md-6 mb-3">
+                            <label for="{{ form.api_provider.id_for_label }}" class="form-label fw-bold">AI Provider</label>
+                            {{ form.api_provider }}
+                            {% if form.api_provider.errors %}
+                            <div class="text-danger mt-2">
+                                {% for error in form.api_provider.errors %}
+                                <i class="bi bi-exclamation-circle me-1"></i>{{ error }}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                            <div class="form-text">Choose which AI service to use</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cost Estimate -->
+                    <div class="card cost-estimate-card mb-4">
+                        <div class="card-body">
+                            <h6 class="card-title mb-3">
+                                <i class="bi bi-cash-coin me-2"></i>Cost Estimate
+                            </h6>
+                            <div class="row">
+                                <div class="col-md-4 text-center">
+                                    <div class="mb-2">
+                                        <small class="text-muted">Small File (~1MB)</small>
+                                    </div>
+                                    <div class="fw-bold text-primary">${{ cost_estimates.small|floatformat:6 }}</div>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <div class="mb-2">
+                                        <small class="text-muted">Medium File (~5MB)</small>
+                                    </div>
+                                    <div class="fw-bold text-primary">${{ cost_estimates.medium|floatformat:6 }}</div>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <div class="mb-2">
+                                        <small class="text-muted">Large File (~15MB)</small>
+                                    </div>
+                                    <div class="fw-bold text-primary">${{ cost_estimates.large|floatformat:6 }}</div>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <small class="text-muted">
+                                    <i class="bi bi-info-circle me-1"></i>
+                                    Actual cost may vary based on audio duration and content complexity
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg" id="submitButton">
+                            <i class="bi bi-cloud-upload me-2"></i>Upload & Process
+                        </button>
+                    </div>
+                </form>
+                
+                <!-- Processing Progress (Hidden by default) -->
+                <div class="mt-5 d-none" id="processingSection">
+                    <h5 class="mb-4"><i class="bi bi-hourglass-split me-2"></i>Processing Progress</h5>
+                    
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="progress-container">
+                                <canvas class="progress-ring" id="progressRing" width="100" height="100"></canvas>
+                                <div class="progress-text" id="progressText">0%</div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="processing-steps">
+                                <div class="step active" id="stepUpload">
+                                    <h6>Uploading</h6>
+                                    <p class="text-muted mb-0">File is being uploaded to the server</p>
+                                </div>
+                                <div class="step" id="stepTranscribing">
+                                    <h6>Transcribing</h6>
+                                    <p class="text-muted mb-0">Converting audio to text using AI</p>
+                                </div>
+                                <div class="step" id="stepSummarizing">
+                                    <h6>Summarizing</h6>
+                                    <p class="text-muted mb-0">Generating summary from transcribed text</p>
+                                </div>
+                                <div class="step" id="stepCompleted">
+                                    <h6>Completed</h6>
+                                    <p class="text-muted mb-0">Processing finished successfully</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <div class="progress" style="height: 10px;">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" 
+                                 id="progressBar" style="width: 0%"></div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-2">
+                            <small class="text-muted" id="statusText">Waiting to start...</small>
+                            <small class="text-muted" id="timeElapsed">00:00</small>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-info mt-4 d-none" id="recordingInfo">
+                        <i class="bi bi-info-circle me-2"></i>
+                        Your recording is being processed. You can close this page and check back later,
+                        or <a href="#" id="recordingLink">view the recording page</a> for real-time updates.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Instructions -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h6 class="mb-0"><i class="bi bi-info-circle me-2"></i>Instructions & Tips</h6>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>Supported Files</h6>
+                        <ul class="text-muted">
+                            <li>MP3 audio files only (.mp3 extension)</li>
+                            <li>Maximum file size: 25MB</li>
+                            <li>Recommended audio quality: 128kbps or higher</li>
+                            <li>Clear speech yields better transcription results</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>Processing Time</h6>
+                        <ul class="text-muted">
+                            <li>Transcription: ~1 minute per 10 minutes of audio</li>
+                            <li>Summarization: ~10-30 seconds depending on text length</li>
+                            <li>Total processing depends on API provider load</li>
+                            <li>You'll receive email notification when complete</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // File upload handling
+    const fileUploadArea = document.getElementById('fileUploadArea');
+    const audioFileInput = document.getElementById('audioFile');
+    const fileInfo = document.getElementById('fileInfo');
+    const fileName = document.getElementById('fileName');
+    const fileSize = document.getElementById('fileSize');
+    const uploadForm = document.getElementById('uploadForm');
+    const submitButton = document.getElementById('submitButton');
+    
+    // Drag and drop functionality
+    fileUploadArea.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        fileUploadArea.classList.add('dragover');
+    });
+    
+    fileUploadArea.addEventListener('dragleave', () => {
+        fileUploadArea.classList.remove('dragover');
+    });
+    
+    fileUploadArea.addEventListener('drop', (e) => {
+        e.preventDefault();
+        fileUploadArea.classList.remove('dragover');
+        
+        if (e.dataTransfer.files.length) {
+            audioFileInput.files = e.dataTransfer.files;
+            updateFileInfo();
+        }
+    });
+    
+    // File input change
+    audioFileInput.addEventListener('change', updateFileInfo);
+    
+    function updateFileInfo() {
+        if (audioFileInput.files.length) {
+            const file = audioFileInput.files[0];
+            fileName.textContent = file.name;
+            fileSize.textContent = formatFileSize(file.size);
+            fileInfo.classList.remove('d-none');
+            
+            // Update cost estimate based on file size
+            updateCostEstimate(file.size);
+        } else {
+            fileInfo.classList.add('d-none');
+        }
+    }
+    
+    function clearFile() {
+        audioFileInput.value = '';
+        fileInfo.classList.add('d-none');
+    }
+    
+    function formatFileSize(bytes) {
+        if (bytes === 0) return '0 Bytes';
+        const k = 1024;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+    
+    function updateCostEstimate(fileSizeBytes) {
+        // Simple cost estimation based on file size
+        const fileSizeMB = fileSizeBytes / (1024 * 1024);
+        const baseCost = 0.001; // Base cost per MB
+        
+        // Update UI with estimated cost
+        // This is a simplified version - actual cost calculation is done server-side
+        console.log(`File size: ${fileSizeMB.toFixed(2)}MB`);
+    }
+    
+    // Form submission with progress tracking
+    uploadForm.addEventListener('submit', function(e) {
+        // Show processing section
+        document.getElementById('processingSection').classList.remove('d-none');
+        
+        // Disable submit button
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Processing...';
+        
+        // Start progress animation
+        startProgressTracking();
+    });
+    
+    // Progress tracking
+    let progressInterval;
+    let startTime;
+    
+    function startProgressTracking() {
+        startTime = new Date();
+        
+        // Update elapsed time
+        progressInterval = setInterval(() => {
+            const elapsed = Math.floor((new Date() - startTime) / 1000);
+            const minutes = Math.floor(elapsed / 60);
+            const seconds = elapsed % 60;
+            document.getElementById('timeElapsed').textContent = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }, 1000);
+        
+        // Simulate progress updates (in real app, this would come from server via SSE or WebSocket)
+        simulateProgress();
+    }
+    
+    function simulateProgress() {
+        let progress = 0;
+        const steps = ['Uploading', 'Transcribing', 'Summarizing', 'Completed'];
+        let currentStep = 0;
+        
+        const interval = setInterval(() => {
+            if (progress >= 100) {
+                clearInterval(interval);
+                clearInterval(progressInterval);
+                completeProcessing();
+                return;
+            }
+            
+            progress += 1;
+            updateProgress(progress);
+            
+            // Update steps
+            if (progress >= 25 && currentStep === 0) {
+                setStepActive(1);
+                currentStep = 1;
+            } else if (progress >= 50 && currentStep === 1) {
+                setStepActive(2);
+                currentStep = 2;
+            } else if (progress >= 75 && currentStep === 2) {
+                setStepActive(3);
+                currentStep = 3;
+            }
+        }, 100);
+    }
+    function updateProgress(percentage) {
+        // Update progress bar
+        document.getElementById('progressBar').style.width = `${percentage}%`;
+        document.getElementById('progressText').textContent = `${percentage}%`;
+        
+        // Update status text
+        const statuses = [
+            'Uploading file...',
+            'Transcribing audio...',
+            'Generating summary...',
+            'Finalizing...'
+        ];
+        
+        let statusIndex = Math.floor(percentage / 25);
+        if (statusIndex >= statuses.length) statusIndex = statuses.length - 1;
+        document.getElementById('statusText').textContent = statuses[statusIndex];
+        
+        // Update progress ring
+        const canvas = document.getElementById('progressRing');
+        const ctx = canvas.getContext('2d');
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+        const radius = 45;
+        
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Background circle
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+        ctx.strokeStyle = 'var(--bs-border-color)';
+        ctx.lineWidth = 8;
+        ctx.stroke();
+        
+        // Progress arc
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, -Math.PI / 2, (percentage / 100) * 2 * Math.PI - Math.PI / 2);
+        ctx.strokeStyle = 'var(--bs-primary)';
+        ctx.lineWidth = 8;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+    }
+    
+    function setStepActive(stepIndex) {
+        const steps = document.querySelectorAll('.step');
+        steps.forEach((step, index) => {
+            if (index < stepIndex) {
+                step.classList.add('completed');
+                step.classList.remove('active');
+            } else if (index === stepIndex) {
+                step.classList.add('active');
+                step.classList.remove('completed');
+            } else {
+                step.classList.remove('active', 'completed');
+            }
+        });
+    }
+    
+    function completeProcessing() {
+        // Show completion message
+        document.getElementById('statusText').textContent = 'Processing complete!';
+        document.getElementById('recordingInfo').classList.remove('d-none');
+        
+        // Stop progress animation
+        const progressBar = document.getElementById('progressBar');
+        progressBar.classList.remove('progress-bar-animated');
+        progressBar.classList.remove('progress-bar-striped');
+        
+        // In a real app, you would redirect to the recording page
+        // For now, we'll just show a message
+        setTimeout(() => {
+            alert('Processing complete! You will be redirected to your recording.');
+            // window.location.href = '/recordings/'; // Redirect to recordings list
+        }, 1000);
+    }
+</script>
+{% endblock %}
+    

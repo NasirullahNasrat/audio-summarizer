@@ -1,0 +1,2286 @@
+Internal Server Error: /admin/auth/group/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\contrib\admin\templatetags\base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\library.py", line 271, in render
+    new_context = context.new(_dict)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 273, in new
+    new_context = super().new(values)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 110, in new
+    new_context = copy(self)
+  File "C:\Python314\Lib\copy.py", line 82, in copy
+    return copier(x)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 158, in __copy__
+    duplicate = super().__copy__()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 39, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+"GET /admin/auth/group/ HTTP/1.1" 500 401584
+Internal Server Error: /admin/django_celery_results/groupresult/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\contrib\admin\templatetags\base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\library.py", line 271, in render
+    new_context = context.new(_dict)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 273, in new
+    new_context = super().new(values)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 110, in new
+    new_context = copy(self)
+  File "C:\Python314\Lib\copy.py", line 82, in copy
+    return copier(x)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 158, in __copy__
+    duplicate = super().__copy__()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 39, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+"GET /admin/django_celery_results/groupresult/ HTTP/1.1" 500 402899
+Internal Server Error: /admin/transcriber/audiorecording/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\db\backends\sqlite3\base.py", line 329, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such table: transcriber_audiorecording
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\contrib\admin\options.py", line 716, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\contrib\admin\sites.py", line 240, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\contrib\admin\options.py", line 1987, in changelist_view
+    cl = self.get_changelist_instance(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\contrib\admin\options.py", line 864, in get_changelist_instance
+    return ChangeList(
+        request,
+    ...<12 lines>...
+        self.search_help_text,
+    )
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\contrib\admin\views\main.py", line 145, in __init__
+    self.get_results(request)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\contrib\admin\views\main.py", line 312, in get_results
+    result_count = paginator.count
+                   ^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\paginator.py", line 110, in count
+    return c()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\db\models\query.py", line 620, in count
+    return self.query.get_count(using=self.db)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\db\models\sql\query.py", line 629, in get_count
+    return obj.get_aggregation(using, {"__count": Count("*")})["__count"]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\db\models\sql\query.py", line 615, in get_aggregation
+    result = compiler.execute_sql(SINGLE)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\db\backends\sqlite3\base.py", line 329, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such table: transcriber_audiorecording
+"GET /admin/transcriber/audiorecording/ HTTP/1.1" 500 204127
+Internal Server Error: /admin/transcriber/audiorecording/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\contrib\admin\templatetags\base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\library.py", line 271, in render
+    new_context = context.new(_dict)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 273, in new
+    new_context = super().new(values)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 110, in new
+    new_context = copy(self)
+  File "C:\Python314\Lib\copy.py", line 82, in copy
+    return copier(x)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 158, in __copy__
+    duplicate = super().__copy__()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 39, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+"GET /admin/transcriber/audiorecording/ HTTP/1.1" 500 406196
+Internal Server Error: /admin/auth/group/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\contrib\admin\templatetags\base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\library.py", line 271, in render
+    new_context = context.new(_dict)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 273, in new
+    new_context = super().new(values)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 110, in new
+    new_context = copy(self)
+  File "C:\Python314\Lib\copy.py", line 82, in copy
+    return copier(x)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 158, in __copy__
+    duplicate = super().__copy__()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 39, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+"GET /admin/auth/group/ HTTP/1.1" 500 401584
+Internal Server Error: /recordings/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 515, in parse
+    self.unclosed_block_tag(parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 578, in unclosed_block_tag
+    raise self.error(token, msg)
+django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 383: 'block'. Looking for one of: endblock.
+"GET /recordings/ HTTP/1.1" 500 192401
+Internal Server Error: /admin/auth/group/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\contrib\admin\templatetags\base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\library.py", line 271, in render
+    new_context = context.new(_dict)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 273, in new
+    new_context = super().new(values)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 110, in new
+    new_context = copy(self)
+  File "C:\Python314\Lib\copy.py", line 82, in copy
+    return copier(x)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 158, in __copy__
+    duplicate = super().__copy__()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 39, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+"GET /admin/auth/group/ HTTP/1.1" 500 401584
+Internal Server Error: /admin/django_celery_results/taskresult/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\contrib\admin\templatetags\base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\library.py", line 271, in render
+    new_context = context.new(_dict)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 273, in new
+    new_context = super().new(values)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 110, in new
+    new_context = copy(self)
+  File "C:\Python314\Lib\copy.py", line 82, in copy
+    return copier(x)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 158, in __copy__
+    duplicate = super().__copy__()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 39, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+"GET /admin/django_celery_results/taskresult/ HTTP/1.1" 500 402722
+Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\utils\functional.py", line 32, in __call__
+    return self.__value__
+           ^^^^^^^^^^^^^^
+AttributeError: 'ChannelPromise' object has no attribute '__value__'. Did you mean: '__call__'?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\transport\virtual\base.py", line 951, in create_channel
+    return self._avail_channels.pop()
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^
+IndexError: pop from empty list
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\connection.py", line 998, in connect_check_health
+    sock = self._connect()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\connection.py", line 1512, in _connect
+    raise err
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\connection.py", line 1496, in _connect
+    sock.connect(socket_address)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\connection.py", line 474, in _reraise_as_library_errors
+    yield
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\connection.py", line 461, in _ensure_connection
+    return retry_over_time(
+        self._connection_factory, self.recoverable_connection_errors,
+    ...<2 lines>...
+        callback, timeout=timeout
+    )
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\utils\functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\connection.py", line 941, in _connection_factory
+    self._connection = self._establish_connection()
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\connection.py", line 863, in _establish_connection
+    conn = self.transport.establish_connection()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\transport\virtual\base.py", line 975, in establish_connection
+    self._avail_channels.append(self.create_channel(self))
+                                ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\transport\virtual\base.py", line 953, in create_channel
+    channel = self.Channel(connection)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\transport\redis.py", line 757, in __init__
+    self.client.ping()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\commands\core.py", line 1246, in ping
+    return self.execute_command("PING", **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\client.py", line 716, in execute_command
+    return self._execute_command(*args, **options)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\client.py", line 722, in _execute_command
+    conn = self.connection or pool.get_connection()
+                              ~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\utils.py", line 236, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\connection.py", line 2958, in get_connection
+    connection.connect()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\connection.py", line 976, in connect
+    self.retry.call_with_retry(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        lambda: self.connect_check_health(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        lambda error: self.disconnect(error),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\retry.py", line 132, in call_with_retry
+    raise error
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\retry.py", line 120, in call_with_retry
+    return do()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\connection.py", line 977, in <lambda>
+    lambda: self.connect_check_health(
+            ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        check_health=True, retry_socket_connect=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ),
+    ^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\connection.py", line 1022, in connect_check_health
+    raise e
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 182, in post
+    return super().post(request, *args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 151, in post
+    return self.form_valid(form)
+           ~~~~~~~~~~~~~~~^^^^^^
+  File "d:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\transcriber\views.py", line 64, in form_valid
+    task = transcribe_audio_task.delay(self.object.id)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\celery\app\task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\celery\app\task.py", line 608, in apply_async
+    return app.send_task(
+           ~~~~~~~~~~~~~^
+        self.name, args, kwargs, task_id=task_id, producer=producer,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        **options
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\celery\app\base.py", line 947, in send_task
+    amqp.send_task_message(P, name, message, **options)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\celery\app\amqp.py", line 559, in send_task_message
+    ret = producer.publish(
+        body,
+    ...<8 lines>...
+        **properties
+    )
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\messaging.py", line 190, in publish
+    return _publish(
+        body, priority, content_type, content_encoding,
+        headers, properties, routing_key, mandatory, immediate,
+        exchange_name, declare, timeout, confirm_timeout, retry, retry_policy
+    )
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\connection.py", line 558, in _ensured
+    return fun(*args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\messaging.py", line 200, in _publish
+    channel = self.channel
+              ^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\messaging.py", line 224, in _get_channel
+    channel = self._channel = channel()
+                              ~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\utils\functional.py", line 34, in __call__
+    value = self.__value__ = self.__contract__()
+                             ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\messaging.py", line 240, in <lambda>
+    channel = ChannelPromise(lambda: connection.default_channel)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\connection.py", line 960, in default_channel
+    self._ensure_connection(**conn_opts)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\connection.py", line 460, in _ensure_connection
+    with ctx():
+         ~~~^^
+  File "C:\Python314\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\connection.py", line 478, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+"POST /upload/ HTTP/1.1" 500 297208
+Transcription failed for recording 2: Transcription failed: Client.__init__() got an unexpected keyword argument 'proxies'
+Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 182, in post
+    return super().post(request, *args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 151, in post
+    return self.form_valid(form)
+           ~~~~~~~~~~~~~~~^^^^^^
+  File "d:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\transcriber\views.py", line 102, in form_valid
+    return super().form_valid(form)
+           ~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 134, in form_valid
+    return super().form_valid(form)
+           ~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 63, in form_valid
+    return HttpResponseRedirect(self.get_success_url())
+                                ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 119, in get_success_url
+    if self.success_url:
+       ^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\utils\functional.py", line 187, in __wrapper__
+    result = func(*self._args, **self._kw)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\urls\resolvers.py", line 851, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'recording_list' not found. 'recording_list' is not a valid view function or pattern name.
+"POST /upload/ HTTP/1.1" 500 126953
+Transcription failed for recording 3: Transcription failed: Client.__init__() got an unexpected keyword argument 'proxies'
+Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 182, in post
+    return super().post(request, *args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 151, in post
+    return self.form_valid(form)
+           ~~~~~~~~~~~~~~~^^^^^^
+  File "d:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\transcriber\views.py", line 102, in form_valid
+    return super().form_valid(form)
+           ~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 134, in form_valid
+    return super().form_valid(form)
+           ~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 63, in form_valid
+    return HttpResponseRedirect(self.get_success_url())
+                                ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 119, in get_success_url
+    if self.success_url:
+       ^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\utils\functional.py", line 187, in __wrapper__
+    result = func(*self._args, **self._kw)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\urls\resolvers.py", line 851, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'recording_list' not found. 'recording_list' is not a valid view function or pattern name.
+"POST /upload/ HTTP/1.1" 500 126953
+Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+Transcription failed for recording 4: Transcription failed: Client.__init__() got an unexpected keyword argument 'proxies'
+Transcription failed for recording 5: DeepSeek audio transcription not yet implemented. Please use OpenAI provider.
+Internal Server Error: /admin/transcriber/audiorecording/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\contrib\admin\templatetags\base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\library.py", line 271, in render
+    new_context = context.new(_dict)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 273, in new
+    new_context = super().new(values)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 110, in new
+    new_context = copy(self)
+  File "C:\Python314\Lib\copy.py", line 82, in copy
+    return copier(x)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 158, in __copy__
+    duplicate = super().__copy__()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 39, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+"GET /admin/transcriber/audiorecording/ HTTP/1.1" 500 406202
+Internal Server Error: /admin/django_celery_results/taskresult/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\contrib\admin\templatetags\base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\library.py", line 271, in render
+    new_context = context.new(_dict)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 273, in new
+    new_context = super().new(values)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 110, in new
+    new_context = copy(self)
+  File "C:\Python314\Lib\copy.py", line 82, in copy
+    return copier(x)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 158, in __copy__
+    duplicate = super().__copy__()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 39, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+"GET /admin/django_celery_results/taskresult/ HTTP/1.1" 500 402865
+Transcription failed for recording 6: Transcription failed: Client.__init__() got an unexpected keyword argument 'proxies'
+Internal Server Error: /recordings/6/regenerate/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 202, in get
+    return super().get(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 142, in get
+    return self.render_to_response(self.get_context_data())
+                                   ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 72, in get_context_data
+    kwargs["form"] = self.get_form()
+                     ~~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 37, in get_form
+    return form_class(**self.get_form_kwargs())
+  File "d:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\transcriber\forms.py", line 122, in __init__
+    super().__init__(*args, **kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+TypeError: BaseForm.__init__() got an unexpected keyword argument 'instance'
+"GET /recordings/6/regenerate/ HTTP/1.1" 500 106573
+Internal Server Error: /recordings/6/regenerate/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 202, in get
+    return super().get(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 142, in get
+    return self.render_to_response(self.get_context_data())
+                                   ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 72, in get_context_data
+    kwargs["form"] = self.get_form()
+                     ~~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 37, in get_form
+    return form_class(**self.get_form_kwargs())
+  File "d:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\transcriber\forms.py", line 122, in __init__
+    super().__init__(*args, **kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+TypeError: BaseForm.__init__() got an unexpected keyword argument 'instance'
+"GET /recordings/6/regenerate/ HTTP/1.1" 500 106710
+Internal Server Error: /recordings/6/regenerate/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 202, in get
+    return super().get(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 142, in get
+    return self.render_to_response(self.get_context_data())
+                                   ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 72, in get_context_data
+    kwargs["form"] = self.get_form()
+                     ~~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 37, in get_form
+    return form_class(**self.get_form_kwargs())
+  File "d:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\transcriber\forms.py", line 122, in __init__
+    super().__init__(*args, **kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+TypeError: BaseForm.__init__() got an unexpected keyword argument 'instance'
+"GET /recordings/6/regenerate/ HTTP/1.1" 500 106573
+Transcription failed for recording 7: Transcription failed: Client.__init__() got an unexpected keyword argument 'proxies'
+Internal Server Error: /recordings/7/regenerate/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 202, in get
+    return super().get(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 142, in get
+    return self.render_to_response(self.get_context_data())
+                                   ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 72, in get_context_data
+    kwargs["form"] = self.get_form()
+                     ~~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 37, in get_form
+    return form_class(**self.get_form_kwargs())
+  File "d:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\transcriber\forms.py", line 122, in __init__
+    super().__init__(*args, **kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+TypeError: BaseForm.__init__() got an unexpected keyword argument 'instance'
+"GET /recordings/7/regenerate/ HTTP/1.1" 500 106573
+Internal Server Error: /recordings/7/regenerate/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: transcriber/regenerate.html
+"GET /recordings/7/regenerate/ HTTP/1.1" 500 90174
+Internal Server Error: /recordings/7/regenerate/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 481, in parse
+    raise self.error(token, e)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 479, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 597, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 693, in __init__
+    filter_func = parser.find_filter(filter_name)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 603, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'basename'
+"GET /recordings/7/regenerate/ HTTP/1.1" 500 226898
+Transcription failed for recording 8: Transcription failed: Client.__init__() got an unexpected keyword argument 'proxies'
+Internal Server Error: /recordings/8/regenerate/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 481, in parse
+    raise self.error(token, e)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 479, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 597, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 693, in __init__
+    filter_func = parser.find_filter(filter_name)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 603, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'basename'
+"GET /recordings/8/regenerate/ HTTP/1.1" 500 226761
+Transcription failed for recording 9: Transcription failed: Client.__init__() got an unexpected keyword argument 'proxies'
+Internal Server Error: /recordings/9/regenerate/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 510, in parse
+    raise self.error(token, e)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 481, in parse
+    raise self.error(token, e)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 479, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 597, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 693, in __init__
+    filter_func = parser.find_filter(filter_name)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 603, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'basename'
+"GET /recordings/9/regenerate/ HTTP/1.1" 500 226761
+Transcription failed for recording 10: Authentication failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your-***************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+Transcription failed for recording 11: Authentication failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your-***************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+Internal Server Error: /recordings/11/regenerate/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\defaulttags.py", line 479, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\urls\resolvers.py", line 851, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'detail' not found. 'detail' is not a valid view function or pattern name.
+"GET /recordings/11/regenerate/ HTTP/1.1" 500 164449
+Internal Server Error: /recordings/11/regenerate/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\defaulttags.py", line 479, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\urls\resolvers.py", line 851, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'detail' not found. 'detail' is not a valid view function or pattern name.
+"GET /recordings/11/regenerate/ HTTP/1.1" 500 164586
+Transcription failed for recording 12: Authentication failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your-***************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+Transcription failed for recording 13: Authentication failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your-***************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+Transcription failed for recording 14: Authentication failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your-***************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+Transcription failed for recording 15: Authentication failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your-***************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+Transcription failed for recording 16: Authentication failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your-***************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+Internal Server Error: /recordings/4/regenerate/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\utils\functional.py", line 32, in __call__
+    return self.__value__
+           ^^^^^^^^^^^^^^
+AttributeError: 'ChannelPromise' object has no attribute '__value__'. Did you mean: '__call__'?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\transport\virtual\base.py", line 951, in create_channel
+    return self._avail_channels.pop()
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^
+IndexError: pop from empty list
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\connection.py", line 998, in connect_check_health
+    sock = self._connect()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\connection.py", line 1512, in _connect
+    raise err
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\connection.py", line 1496, in _connect
+    sock.connect(socket_address)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\connection.py", line 474, in _reraise_as_library_errors
+    yield
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\connection.py", line 461, in _ensure_connection
+    return retry_over_time(
+        self._connection_factory, self.recoverable_connection_errors,
+    ...<2 lines>...
+        callback, timeout=timeout
+    )
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\utils\functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\connection.py", line 941, in _connection_factory
+    self._connection = self._establish_connection()
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\connection.py", line 863, in _establish_connection
+    conn = self.transport.establish_connection()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\transport\virtual\base.py", line 975, in establish_connection
+    self._avail_channels.append(self.create_channel(self))
+                                ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\transport\virtual\base.py", line 953, in create_channel
+    channel = self.Channel(connection)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\transport\redis.py", line 757, in __init__
+    self.client.ping()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\commands\core.py", line 1246, in ping
+    return self.execute_command("PING", **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\client.py", line 716, in execute_command
+    return self._execute_command(*args, **options)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\client.py", line 722, in _execute_command
+    conn = self.connection or pool.get_connection()
+                              ~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\utils.py", line 236, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\connection.py", line 2958, in get_connection
+    connection.connect()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\connection.py", line 976, in connect
+    self.retry.call_with_retry(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        lambda: self.connect_check_health(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        lambda error: self.disconnect(error),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\retry.py", line 132, in call_with_retry
+    raise error
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\retry.py", line 120, in call_with_retry
+    return do()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\connection.py", line 977, in <lambda>
+    lambda: self.connect_check_health(
+            ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        check_health=True, retry_socket_connect=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ),
+    ^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\connection.py", line 1022, in connect_check_health
+    raise e
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 206, in post
+    return super().post(request, *args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 151, in post
+    return self.form_valid(form)
+           ~~~~~~~~~~~~~~~^^^^^^
+  File "d:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\transcriber\views.py", line 235, in form_valid
+    task = regenerate_summary.delay(self.object.id, summary_style, api_provider)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\celery\app\task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\celery\app\task.py", line 608, in apply_async
+    return app.send_task(
+           ~~~~~~~~~~~~~^
+        self.name, args, kwargs, task_id=task_id, producer=producer,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        **options
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\celery\app\base.py", line 947, in send_task
+    amqp.send_task_message(P, name, message, **options)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\celery\app\amqp.py", line 559, in send_task_message
+    ret = producer.publish(
+        body,
+    ...<8 lines>...
+        **properties
+    )
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\messaging.py", line 190, in publish
+    return _publish(
+        body, priority, content_type, content_encoding,
+        headers, properties, routing_key, mandatory, immediate,
+        exchange_name, declare, timeout, confirm_timeout, retry, retry_policy
+    )
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\connection.py", line 558, in _ensured
+    return fun(*args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\messaging.py", line 200, in _publish
+    channel = self.channel
+              ^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\messaging.py", line 224, in _get_channel
+    channel = self._channel = channel()
+                              ~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\utils\functional.py", line 34, in __call__
+    value = self.__value__ = self.__contract__()
+                             ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\messaging.py", line 240, in <lambda>
+    channel = ChannelPromise(lambda: connection.default_channel)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\connection.py", line 960, in default_channel
+    self._ensure_connection(**conn_opts)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\connection.py", line 460, in _ensure_connection
+    with ctx():
+         ~~~^^
+  File "C:\Python314\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\connection.py", line 478, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+"POST /recordings/4/regenerate/ HTTP/1.1" 500 298120
+Transcription failed for recording 17: Authentication failed: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your-***************here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+Internal Server Error: /admin/transcriber/audiorecording/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\base.py", line 961, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\contrib\admin\templatetags\base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\library.py", line 271, in render
+    new_context = context.new(_dict)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 273, in new
+    new_context = super().new(values)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 110, in new
+    new_context = copy(self)
+  File "C:\Python314\Lib\copy.py", line 82, in copy
+    return copier(x)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 158, in __copy__
+    duplicate = super().__copy__()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\template\context.py", line 39, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+"GET /admin/transcriber/audiorecording/ HTTP/1.1" 500 406268
+Internal Server Error: /admin/transcriber/audiorecording/17/retry/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\utils\functional.py", line 32, in __call__
+    return self.__value__
+           ^^^^^^^^^^^^^^
+AttributeError: 'ChannelPromise' object has no attribute '__value__'. Did you mean: '__call__'?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\transport\virtual\base.py", line 951, in create_channel
+    return self._avail_channels.pop()
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^
+IndexError: pop from empty list
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\connection.py", line 998, in connect_check_health
+    sock = self._connect()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\connection.py", line 1512, in _connect
+    raise err
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\connection.py", line 1496, in _connect
+    sock.connect(socket_address)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\connection.py", line 474, in _reraise_as_library_errors
+    yield
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\connection.py", line 461, in _ensure_connection
+    return retry_over_time(
+        self._connection_factory, self.recoverable_connection_errors,
+    ...<2 lines>...
+        callback, timeout=timeout
+    )
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\utils\functional.py", line 318, in retry_over_time
+    return fun(*args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\connection.py", line 941, in _connection_factory
+    self._connection = self._establish_connection()
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\connection.py", line 863, in _establish_connection
+    conn = self.transport.establish_connection()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\transport\virtual\base.py", line 975, in establish_connection
+    self._avail_channels.append(self.create_channel(self))
+                                ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\transport\virtual\base.py", line 953, in create_channel
+    channel = self.Channel(connection)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\transport\redis.py", line 757, in __init__
+    self.client.ping()
+    ~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\commands\core.py", line 1246, in ping
+    return self.execute_command("PING", **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\client.py", line 716, in execute_command
+    return self._execute_command(*args, **options)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\client.py", line 722, in _execute_command
+    conn = self.connection or pool.get_connection()
+                              ~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\utils.py", line 236, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\connection.py", line 2958, in get_connection
+    connection.connect()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\connection.py", line 976, in connect
+    self.retry.call_with_retry(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        lambda: self.connect_check_health(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        lambda error: self.disconnect(error),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\retry.py", line 132, in call_with_retry
+    raise error
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\retry.py", line 120, in call_with_retry
+    return do()
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\connection.py", line 977, in <lambda>
+    lambda: self.connect_check_health(
+            ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        check_health=True, retry_socket_connect=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ),
+    ^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\redis\connection.py", line 1022, in connect_check_health
+    raise e
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\transcriber\admin.py", line 315, in retry_view
+    task = transcribe_audio_task.delay(recording.id)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\celery\app\task.py", line 444, in delay
+    return self.apply_async(args, kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\celery\app\task.py", line 608, in apply_async
+    return app.send_task(
+           ~~~~~~~~~~~~~^
+        self.name, args, kwargs, task_id=task_id, producer=producer,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        **options
+        ^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\celery\app\base.py", line 947, in send_task
+    amqp.send_task_message(P, name, message, **options)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\celery\app\amqp.py", line 559, in send_task_message
+    ret = producer.publish(
+        body,
+    ...<8 lines>...
+        **properties
+    )
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\messaging.py", line 190, in publish
+    return _publish(
+        body, priority, content_type, content_encoding,
+        headers, properties, routing_key, mandatory, immediate,
+        exchange_name, declare, timeout, confirm_timeout, retry, retry_policy
+    )
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\connection.py", line 558, in _ensured
+    return fun(*args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\messaging.py", line 200, in _publish
+    channel = self.channel
+              ^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\messaging.py", line 224, in _get_channel
+    channel = self._channel = channel()
+                              ~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\utils\functional.py", line 34, in __call__
+    value = self.__value__ = self.__contract__()
+                             ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\messaging.py", line 240, in <lambda>
+    channel = ChannelPromise(lambda: connection.default_channel)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\connection.py", line 960, in default_channel
+    self._ensure_connection(**conn_opts)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\connection.py", line 460, in _ensure_connection
+    with ctx():
+         ~~~^^
+  File "C:\Python314\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\kombu\connection.py", line 478, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+"GET /admin/transcriber/audiorecording/17/retry/ HTTP/1.1" 500 293341
+Transcription failed for recording 18: Transcription failed: 'dict' object has no attribute 'id'
+Transcription failed for recording 19: Transcription failed: 'dict' object has no attribute 'id'
+Failed to regenerate summary for recording 19: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+Internal Server Error: /recordings/19/regenerate/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\contrib\auth\mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\base.py", line 144, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 206, in post
+    return super().post(request, *args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\views\generic\edit.py", line 151, in post
+    return self.form_valid(form)
+           ~~~~~~~~~~~~~~~^^^^^^
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\transcriber\views.py", line 265, in form_valid
+    return redirect('recording_detail', pk=self.object.pk)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'recording_detail' not found. 'recording_detail' is not a valid view function or pattern name.
+"POST /recordings/19/regenerate/ HTTP/1.1" 500 117790
+Failed to regenerate summary for recording 19: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+Unexpected error in transcription task for recording 20: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+Internal Server Error: /recordings/25/download/summary/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\transcriber\views.py", line 336, in download_summary
+    return redirect('recording_detail', pk=pk)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'recording_detail' not found. 'recording_detail' is not a valid view function or pattern name.
+"GET /recordings/25/download/summary/ HTTP/1.1" 500 93247
+Internal Server Error: /recordings/25/download/transcription/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\transcriber\views.py", line 323, in download_transcription
+    return redirect('recording_detail', pk=pk)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'recording_detail' not found. 'recording_detail' is not a valid view function or pattern name.
+"GET /recordings/25/download/transcription/ HTTP/1.1" 500 93376
+Internal Server Error: /recordings/25/download/summary/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\transcriber\views.py", line 336, in download_summary
+    return redirect('recording_detail', pk=pk)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'recording_detail' not found. 'recording_detail' is not a valid view function or pattern name.
+"GET /recordings/25/download/summary/ HTTP/1.1" 500 93518
+Transcription failed for recording 24: DeepSeek audio transcription not yet implemented. Please use OpenAI provider.
+Internal Server Error: /recordings/25/download/transcription/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\transcriber\views.py", line 323, in download_transcription
+    return redirect('recording_detail', pk=pk)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'recording_detail' not found. 'recording_detail' is not a valid view function or pattern name.
+"GET /recordings/25/download/transcription/ HTTP/1.1" 500 93379
+Internal Server Error: /recordings/25/download/transcription/
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\transcriber\views.py", line 323, in download_transcription
+    return redirect('recording_detail', pk=pk)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'recording_detail' not found. 'recording_detail' is not a valid view function or pattern name.
+"GET /recordings/25/download/transcription/ HTTP/1.1" 500 93376
+Summarization failed for recording 25: No transcribed text available for summarization
+Failed to regenerate summary for recording 25: No transcribed text available for summarization
+Summarization failed for recording 25: No transcribed text available for summarization
+Failed to regenerate summary for recording 25: No transcribed text available for summarization
+Summarization failed for recording 25: No transcribed text available for summarization
+Failed to regenerate summary for recording 25: No transcribed text available for summarization
+Internal Server Error: /admin/transcriber/audiorecording/
+Traceback (most recent call last):
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\template\response.py", line 111, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\template\response.py", line 89, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\contrib\admin\templatetags\base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\template\library.py", line 271, in render
+    new_context = context.new(_dict)
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\template\context.py", line 265, in new
+    new_context = super().new(values)
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\template\context.py", line 110, in new
+    new_context = copy(self)
+  File "C:\Python314\Lib\copy.py", line 82, in copy
+    return copier(x)
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\template\context.py", line 158, in __copy__
+    duplicate = super().__copy__()
+  File "D:\1 Videos\AI Apps\AI Course\voice system\audio_summarizer\venv\Lib\site-packages\django\template\context.py", line 39, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+"GET /admin/transcriber/audiorecording/ HTTP/1.1" 500 405823

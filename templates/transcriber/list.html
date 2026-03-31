@@ -1,0 +1,478 @@
+{% extends 'transcriber/base.html' %}
+
+{% block title %}Recordings - Audio Summarizer{% endblock %}
+
+{% block extra_css %}
+<style>
+    .filter-card {
+        background-color: var(--bs-dark);
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+    }
+    
+    .stat-card-small {
+        text-align: center;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        background-color: rgba(var(--bs-primary-rgb), 0.1);
+    }
+    
+    .stat-value-small {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+    }
+    
+    .stat-label-small {
+        font-size: 0.75rem;
+        color: var(--secondary-color);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .table-actions {
+        white-space: nowrap;
+    }
+    
+    .chart-container {
+        height: 200px;
+        position: relative;
+    }
+    
+    .export-buttons {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+    
+    .badge-count {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.5rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col">
+        <h2 class="mb-0"><i class="bi bi-list-ul me-2"></i>Audio Recordings</h2>
+        <p class="text-muted">Manage and view all your audio transcriptions and summaries</p>
+    </div>
+    <div class="col-auto">
+        <a href="{% url 'transcriber:upload' %}" class="btn btn-primary">
+            <i class="bi bi-plus-circle me-2"></i>New Recording
+        </a>
+    </div>
+</div>
+
+<!-- Statistics Row -->
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="stat-card-small">
+            <div class="stat-value-small">{{ total_count }}</div>
+            <div class="stat-label-small">Total Recordings</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card-small">
+            <div class="stat-value-small">${{ total_cost|floatformat:6 }}</div>
+            <div class="stat-label-small">Total Cost</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card-small">
+            <div class="stat-value-small">
+                {% if status_counts.Completed %}{{ status_counts.Completed }}{% else %}0{% endif %}
+            </div>
+            <div class="stat-label-small">Completed</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card-small">
+            <div class="stat-value-small">
+                {% if status_counts.Failed %}{{ status_counts.Failed }}{% else %}0{% endif %}
+            </div>
+            <div class="stat-label-small">Failed</div>
+        </div>
+    </div>
+</div>
+
+<!-- Filters Card -->
+<div class="card mb-4">
+    <div class="card-header">
+        <h5 class="mb-0"><i class="bi bi-funnel me-2"></i>Filters</h5>
+    </div>
+    <div class="card-body">
+        <form method="get" class="row g-3">
+            <div class="col-md-4">
+                <label class="form-label">Search</label>
+                {{ filter_form.search }}
+            </div>
+            <div class="col-md-2">
+                <label class="form-label">Status</label>
+                {{ filter_form.status }}
+            </div>
+            <div class="col-md-2">
+                <label class="form-label">Provider</label>
+                {{ filter_form.api_provider }}
+            </div>
+            <div class="col-md-2">
+                <label class="form-label">Style</label>
+                {{ filter_form.summary_style }}
+            </div>
+            <div class="col-md-2">
+                <label class="form-label">Date From</label>
+                {{ filter_form.date_from }}
+            </div>
+            <div class="col-md-2">
+                <label class="form-label">Date To</label>
+                {{ filter_form.date_to }}
+            </div>
+            <div class="col-12">
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-filter me-2"></i>Apply Filters
+                    </button>
+                    <a href="{% url 'transcriber:recording_list' %}" class="btn btn-outline-secondary">
+                        <i class="bi bi-x-circle me-2"></i>Clear
+                    </a>
+                    <div class="ms-auto export-buttons">
+                        <a href="{% url 'transcriber:export_csv' %}" class="btn btn-outline-success">
+                            <i class="bi bi-download me-2"></i>Export CSV
+                        </a>
+                        <a href="{% url 'transcriber:statistics' %}" class="btn btn-outline-info">
+                            <i class="bi bi-graph-up me-2"></i>Statistics
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Recordings Table -->
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Recordings ({{ page_obj.paginator.count }} total)</h5>
+        <div>
+            {% if is_paginated %}
+            <small class="text-muted">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+            </small>
+            {% endif %}
+        </div>
+    </div>
+    <div class="card-body">
+        {% if recordings %}
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Status</th>
+                        <th>Provider</th>
+                        <th>Style</th>
+                        <th>Cost</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for recording in recordings %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'transcriber:recording_detail' recording.pk %}" class="text-decoration-none">
+                                {{ recording.title|truncatechars:40 }}
+                            </a>
+                            {% if recording.transcribed_text %}
+                            <br>
+                            <small class="text-muted">
+                                {{ recording.get_word_count }} words
+                            </small>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <span class="status-badge status-{{ recording.status }}">
+                                {{ recording.get_status_display }}
+                            </span>
+                            {% if recording.processing_time %}
+                            <br>
+                            <small class="text-muted">
+                                {{ recording.processing_time|floatformat:2 }}s
+                            </small>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if recording.api_provider == 'openai' %}
+                            <span class="badge bg-primary bg-opacity-10 text-primary">
+                                <i class="bi bi-robot me-1"></i>OpenAI
+                            </span>
+                            {% else %}
+                            <span class="badge bg-info bg-opacity-10 text-info">
+                                <i class="bi bi-cpu me-1"></i>DeepSeek
+                            </span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if recording.summary_style == 'concise' %}
+                            <span class="badge bg-secondary">Concise</span>
+                            {% elif recording.summary_style == 'detailed' %}
+                            <span class="badge bg-secondary">Detailed</span>
+                            {% elif recording.summary_style == 'bullet_points' %}
+                            <span class="badge bg-secondary">Bullet Points</span>
+                            {% else %}
+                            <span class="badge bg-secondary">Key Takeaways</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if recording.cost_estimate %}
+                            <span class="badge bg-dark">
+                                ${{ recording.cost_estimate|floatformat:6 }}
+                            </span>
+                            {% else %}
+                            <span class="text-muted">-</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <small class="text-muted">
+                                {{ recording.created_at|date:"M d, Y" }}<br>
+                                {{ recording.created_at|time:"H:i" }}
+                            </small>
+                        </td>
+                        <td class="table-actions">
+                            <div class="btn-group btn-group-sm">
+                                <a href="{% url 'transcriber:recording_detail' recording.pk %}" class="btn btn-outline-primary" title="View">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                                {% if recording.status == 'completed' %}
+                                <a href="{% url 'transcriber:download_transcription' recording.pk %}" class="btn btn-outline-success" title="Download Transcription">
+                                    <i class="bi bi-file-text"></i>
+                                </a>
+                                <a href="{% url 'transcriber:download_summary' recording.pk %}" class="btn btn-outline-info" title="Download Summary">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                </a>
+                                {% endif %}
+                                {% if recording.status == 'failed' %}
+                                <a href="{% url 'transcriber:regenerate_summary' recording.pk %}" class="btn btn-outline-warning" title="Retry">
+                                    <i class="bi bi-arrow-clockwise"></i>
+                                </a>
+                                {% endif %}
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Pagination -->
+        {% if is_paginated %}
+        <nav aria-label="Page navigation" class="mt-4">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page=1{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">
+                        <i class="bi bi-chevron-double-left"></i>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">
+                        <i class="bi bi-chevron-left"></i>
+                    </a>
+                </li>
+                {% endif %}
+                
+                {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                    <li class="page-item active">
+                        <span class="page-link">{{ num }}</span>
+                    </li>
+                    {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ num }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">{{ num }}</a>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+                
+                {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}{% for key, value in request.GET.items %}{% if key != 'page' %}&{{ key }}={{ value }}{% endif %}{% endfor %}">
+                        <i class="bi bi-chevron-double-right"></i>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+        
+        {% else %}
+        <div class="text-center py-5">
+            <i class="bi bi-mic display-4 text-muted mb-3"></i>
+            <h5 class="text-muted">No recordings found</h5>
+            <p class="text-muted mb-4">
+                {% if request.GET %}
+                Try adjusting your filters or
+                {% endif %}
+                Upload your first audio file to get started.
+            </p>
+            <a href="{% url 'transcriber:upload' %}" class="btn btn-primary">
+                <i class="bi bi-upload me-2"></i>Upload Audio
+            </a>
+            {% if request.GET %}
+            <a href="{% url 'transcriber:recording_list' %}" class="btn btn-outline-secondary ms-2">
+                <i class="bi bi-x-circle me-2"></i>Clear Filters
+            </a>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Statistics Charts -->
+{% if recordings %}
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="mb-0"><i class="bi bi-pie-chart me-2"></i>Status Distribution</h6>
+            </div>
+            <div class="card-body">
+                <div class="chart-container">
+                    <canvas id="statusChart"></canvas>
+                </div>
+                <div class="mt-3">
+                    {% for status_name, count in status_counts.items %}
+                    <div class="d-flex justify-content-between mb-1">
+                        <span>{{ status_name }}</span>
+                        <span class="badge bg-secondary">{{ count }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="mb-0"><i class="bi bi-bar-chart me-2"></i>Provider Distribution</h6>
+            </div>
+            <div class="card-body">
+                <div class="chart-container">
+                    <canvas id="providerChart"></canvas>
+                </div>
+                <div class="mt-3">
+                    {% for provider_name, count in provider_counts.items %}
+                    <div class="d-flex justify-content-between mb-1">
+                        <span>{{ provider_name }}</span>
+                        <span class="badge bg-primary">{{ count }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Initialize charts if we have data
+    document.addEventListener('DOMContentLoaded', function() {
+        {% if status_counts %}
+        // Status Distribution Chart
+        const statusCtx = document.getElementById('statusChart').getContext('2d');
+        const statusChart = new Chart(statusCtx, {
+            type: 'doughnut',
+            data: {
+                labels: [{% for status_name, count in status_counts.items %}'{{ status_name }}',{% endfor %}],
+                datasets: [{
+                    data: [{% for status_name, count in status_counts.items %}{{ count }},{% endfor %}],
+                    backgroundColor: [
+                        '#6c757d', // pending - gray
+                        '#0dcaf0', // transcribing - cyan
+                        '#ffc107', // summarizing - yellow
+                        '#198754', // completed - green
+                        '#dc3545'  // failed - red
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+        {% endif %}
+        
+        {% if provider_counts %}
+        // Provider Distribution Chart
+        const providerCtx = document.getElementById('providerChart').getContext('2d');
+        const providerChart = new Chart(providerCtx, {
+            type: 'bar',
+            data: {
+                labels: [{% for provider_name, count in provider_counts.items %}'{{ provider_name }}',{% endfor %}],
+                datasets: [{
+                    label: 'Recordings',
+                    data: [{% for provider_name, count in provider_counts.items %}{{ count }},{% endfor %}],
+                    backgroundColor: [
+                        'rgba(13, 110, 253, 0.7)',
+                        'rgba(13, 202, 240, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgb(13, 110, 253)',
+                        'rgb(13, 202, 240)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+        {% endif %}
+        
+        // Auto-submit date filters when dates are selected
+        const dateFrom = document.querySelector('input[name="date_from"]');
+        const dateTo = document.querySelector('input[name="date_to"]');
+        
+        if (dateFrom && dateTo) {
+            dateFrom.addEventListener('change', function() {
+                if (dateFrom.value && dateTo.value) {
+                    this.form.submit();
+                }
+            });
+            dateTo.addEventListener('change', function() {
+                if (dateFrom.value && dateTo.value) {
+                    this.form.submit();
+                }
+            });
+        }
+    });
+</script>
+{% endblock %}
